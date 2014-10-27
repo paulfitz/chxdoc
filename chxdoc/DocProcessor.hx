@@ -87,8 +87,10 @@ class DocProcessor {
 		if(doc != null) {
 			// trim stars
 			doc = ~/^([ \t]*)\*+ ?/gm.replace(doc, "");
+			doc = ~/^([ \t]*)\*+ ?/gm.replace(doc, "");
+			doc = ~/^\t+/gm.replace(doc, "");
 			//doc = ~/^([ \t]*)\*+/gm.replace(doc, "$1");
-			doc = ~/\**[ \t]*$/gm.replace(doc, "");
+			//doc = ~/\**[ \t]*$/gm.replace(doc, "");
 
 			var parts = doTags(doc.split("\n"));
 
