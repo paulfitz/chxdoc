@@ -334,7 +334,7 @@ class Serializer {
 				var d : Date = v;
 				buf.writeString("v");
 				buf.writeString(d.toString());
-			case cast Map:
+			case haxe.ds.StringMap, haxe.ds.IntMap, haxe.ds.EnumValueMap:
 				buf.writeString("b");
 				var v : Map<Dynamic, Dynamic> = v;
 				for( k in v.keys() ) {

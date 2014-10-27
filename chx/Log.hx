@@ -152,12 +152,14 @@ class Log {
 						buf.add(iterFmtLinear("{","}",indent, v.iterator()));
 					else
 						buf.add("{}");
-				case cast Map:
-					buf.add(
-						iterFmtAssoc("{", "}", " => ", indent, v.keys(), v.get)
-					);
 				default:
-					buf.add(Std.string(v));
+				  try {
+				    buf.add(
+					    iterFmtAssoc("{", "}", " => ", indent, v.keys(), v.get)
+					    );
+				  } catch(e: Dynamic) {
+				    buf.add(Std.string(v));
+				  }
 				}
 		case TObject:
 			buf.add(
