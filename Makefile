@@ -1,0 +1,2 @@
+default:
+	haxe build.hxml
